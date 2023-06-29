@@ -1,0 +1,11 @@
+{
+  "name": "com.panadoll.gamedevkit",
+  "displayName": "GameDevKit",
+  "version": "0.0.1",
+  "unity": "2021.3",
+  "description": "GameDevKit is a collection of tools for Unity3D",
+  "dependencies": {},
+  "keywords": [
+    "tools"
+  ]
+}
