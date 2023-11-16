@@ -74,6 +74,11 @@ public class DuelystPListImporter : EditorWindow
                 }
                 if (GUILayout.Button("选择文件夹"))
                 {
+                    if (string.IsNullOrEmpty(outPath))
+                    {
+                        EditorUtility.DisplayDialog("错误", "导出文件夹不能为空", "确定");
+                        return;
+                    }
                     string path = EditorUtility.OpenFolderPanel("Select Folder", "", "");
                     if (path.Length != 0)
                     {
@@ -123,13 +128,13 @@ public class DuelystPListImporter : EditorWindow
                         filterList = new List<string>();
                     }
                 }
-                if (GUILayout.Button("导出路径：" + tpOutPath))
+                if (GUILayout.Button("序列镇导出路径：" + tpOutPath))
                 {
                     string path = EditorUtility.OpenFolderPanel("Select Folder", "", "");
                     if (path.Length != 0)
                     {
                         tpOutPath = path;
-                        //Debug.LogError(tpOutPath);
+                        Debug.LogError(tpOutPath);
                     }
                 }
                 if (GUILayout.Button("选择文件夹"))
@@ -455,8 +460,12 @@ public class DuelystPListImporter : EditorWindow
             // 输出子目录路径
             foreach (string subdirectory in subdirectories)
             {
+                if(subdirectory.IndexOf("tpsheets") != -1)
+                {
+                    continue;
+                }
                 var dir = Path.GetFileName(subdirectory);
-                string tpOutPathFile = string.Format("{0}/{1}.png", Path.GetDirectoryName(tpOutPath), dir);
+                string tpOutPathFile = string.Format("{0}/tpsheets/{1}.png", tpOutPath, dir);
                 Debug.LogError(tpOutPathFile);
                 //Console.WriteLine("子目录：" + subdirectory);
                 CreateTPS(texturePackerPath, subdirectory, tpOutPathFile);
