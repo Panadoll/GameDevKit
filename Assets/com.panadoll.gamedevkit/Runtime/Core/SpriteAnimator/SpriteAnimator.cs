@@ -6,6 +6,7 @@ namespace Panadoll
     public class SpriteAnimator : MonoBehaviour
     {
         [SerializeField] private bool _playAutomatically = false;
+        [SerializeField] private string _defaultAnimationName = "idle";
         [SerializeField] private SpriteAnimationObject _spriteAnimationObject;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
@@ -31,8 +32,14 @@ namespace Panadoll
                     Debug.LogError($"PlayAutomatically is set to TRUE but no default animations were found.");
                     return;
                 }
-
-                Play(DefaultAnimation);
+                if (string.IsNullOrEmpty(_defaultAnimationName))
+                {
+                    Play(DefaultAnimation);
+                }
+                else
+                {
+                    Play(_defaultAnimationName);
+                }
             }
         }
 

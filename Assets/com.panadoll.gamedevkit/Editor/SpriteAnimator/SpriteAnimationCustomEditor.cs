@@ -9,6 +9,7 @@ namespace Panadoll
     {
         public override void OnInspectorGUI()
         {
+            base.OnInspectorGUI();
             SpriteAnimationObject spriteAnimation = (SpriteAnimationObject)target;
         }
     }
