@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using System;
 
 namespace Panadoll
 {
-    /* 频繁调用的事件
+    //频繁调用的事件
+    /*
     public static class FastActionManager
     {
         public static readonly FastAction<bool, Material> MATERIAL_PROPERTY_EVENT = new FastAction<bool, Material>();
@@ -15,7 +16,21 @@ namespace Panadoll
         {
             MATERIAL_PROPERTY_EVENT.Call(isChanged, mat);
         }
+    }
+    
+    public class Test
+    {
+        public void TestII()
+        {
+            FastActionManager.MATERIAL_PROPERTY_EVENT.Add(resourceLoaded);
+        }
+
+        private void resourceLoaded(bool isf, Material mat)
+        {
+          
+        }
     }*/
+
     public class FastAction
     {
 
@@ -25,10 +40,13 @@ namespace Panadoll
 
         public void Add(System.Action rhs)
         {
+            
             if (lookup.ContainsKey(rhs)) return;
 
             lookup[rhs] = delegates.AddLast(rhs);
         }
+
+        
 
         public void Remove(System.Action rhs)
         {
