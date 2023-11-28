@@ -5,6 +5,17 @@ using System.Collections.Generic;
 
 namespace Panadoll
 {
+    /* 频繁调用的事件
+    public static class FastActionManager
+    {
+        public static readonly FastAction<bool, Material> MATERIAL_PROPERTY_EVENT = new FastAction<bool, Material>();
+        public static readonly FastAction RESOURCE_LOAD_EVENT = new FastAction();
+
+        public static void ON_MATERIAL_PROPERTY_EVENT(bool isChanged, Material mat)
+        {
+            MATERIAL_PROPERTY_EVENT.Call(isChanged, mat);
+        }
+    }*/
     public class FastAction
     {
 
