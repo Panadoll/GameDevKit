@@ -10,6 +10,7 @@ namespace Panadoll
         public List<SpriteAnimation> SpriteAnimations = new List<SpriteAnimation>(5);
     }
 
+    [Serializable]
     public enum SpriteAnimationType
     {
         Looping = 0,
