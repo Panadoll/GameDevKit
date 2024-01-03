@@ -59,9 +59,9 @@ namespace Panadoll
             var ec = Event.current;
             if (ec != null && ec.button == 1 && ec.type == EventType.MouseUp && enable)
             {
-                //ec.Use();
+                ec.Use();
                 
-                Vector2 mousePos = ec.mousePosition;
+                Vector2 mousePos = Event.current.mousePosition;
                 float ppp = EditorGUIUtility.pixelsPerPoint;
                 mousePos.y = sceneView.camera.pixelHeight - mousePos.y * ppp;
                 mousePos.x *= ppp;
